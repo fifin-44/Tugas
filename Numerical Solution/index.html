@@ -1,0 +1,1058 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Data Mining">
+      
+      
+        <link rel="canonical" href="https://github.com/fifin-44/datamining/Numerical%20Solution/">
+      
+      
+        <meta name="author" content="Nur Khofifah">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Numerical Solution - Nur Khofifah</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../manifest.webmanifest" crossorigin="use-credentials">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#numerical-solution-of-algebraic-and-transcendental-equation" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.com/fifin-44/datamining/" title="Nur Khofifah" aria-label="Nur Khofifah" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Nur Khofifah
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Numerical Solution
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/fifin-44/datamining/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Nur Khofifah
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href=".." class="md-tabs__link">
+          Penambangan Data
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Home/" class="md-tabs__link md-tabs__link--active">
+          Komputasi Numerik
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.com/fifin-44/datamining/" title="Nur Khofifah" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Nur Khofifah
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/fifin-44/datamining/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Nur Khofifah
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Penambangan Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Penambangan Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="index" class="md-nav__link">
+      index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistik/" title="statistik deskriptif" class="md-nav__link">
+      statistik deskriptif
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MengukurJarak/" title="Mengukur jarak" class="md-nav__link">
+      Mengukur jarak
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Missing%20Values/" title="Missing Values" class="md-nav__link">
+      Missing Values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DECISION%20TREE/" title="DECISION TREE" class="md-nav__link">
+      DECISION TREE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas%205%20-%20Clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fuzzy clustering.md" title="fuzzy clustering" class="md-nav__link">
+      fuzzy clustering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas%207%20-%20Regresi%20Linier%20Sederhana%20dan%20Berganda/" title="Regresi Linier Sederhana dan Berganda" class="md-nav__link">
+      Regresi Linier Sederhana dan Berganda
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Komputasi Numerik
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Komputasi Numerik
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Home/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tugas1/" title="Error" class="md-nav__link">
+      Error
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Numerical Solution
+      </label>
+    
+    <a href="./" title="Numerical Solution" class="md-nav__link md-nav__link--active">
+      Numerical Solution
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-solution-of-algebraic-and-transcendental-equation" class="md-nav__link">
+    Numerical Solution of Algebraic and Transcendental Equation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penyelesaian-persamaan-non-linier" class="md-nav__link">
+    Penyelesaian persamaan non linier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-metode-bisection-dalam-python" class="md-nav__link">
+    implementasi metode bisection dalam python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-method-regula-falsi-dalam-python" class="md-nav__link">
+    implementasi method regula falsi dalam python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-metode-newton-raphson-python" class="md-nav__link">
+    implementasi Metode Newton Raphson python
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formula-secant" class="md-nav__link">
+    formula secant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritma-method-secant" class="md-nav__link">
+    algoritma method secant
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-method-secant-pada-python" class="md-nav__link">
+    implementasi method secant pada python
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-solution-of-algebraic-and-transcendental-equation" class="md-nav__link">
+    Numerical Solution of Algebraic and Transcendental Equation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penyelesaian-persamaan-non-linier" class="md-nav__link">
+    Penyelesaian persamaan non linier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-metode-bisection-dalam-python" class="md-nav__link">
+    implementasi metode bisection dalam python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-method-regula-falsi-dalam-python" class="md-nav__link">
+    implementasi method regula falsi dalam python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-metode-newton-raphson-python" class="md-nav__link">
+    implementasi Metode Newton Raphson python
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formula-secant" class="md-nav__link">
+    formula secant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritma-method-secant" class="md-nav__link">
+    algoritma method secant
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-method-secant-pada-python" class="md-nav__link">
+    implementasi method secant pada python
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/fifin-44/datamining/edit/master/docs/Numerical Solution.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Numerical Solution</h1>
+                
+                <h3 id="numerical-solution-of-algebraic-and-transcendental-equation">Numerical Solution of Algebraic and Transcendental Equation<a class="headerlink" href="#numerical-solution-of-algebraic-and-transcendental-equation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sistem persaman aljabar dapat diuraikan seperti dibawah ini </li>
+</ul>
+<p><img alt="png" src="persamaan.png" /></p>
+<p>Persamaan transcendental  : sin, cos, tan,</p>
+<p>Persamaan polynomial  : a0 + a1x + a2x2 ……. + anxn + ……</p>
+<ul>
+<li>
+<h4 id="penyelesaian-persamaan-non-linier">Penyelesaian persamaan non linier<a class="headerlink" href="#penyelesaian-persamaan-non-linier" title="Permanent link">&para;</a></h4>
+</li>
+<li>
+<p>Metode Tertutup</p>
+</li>
+<li>
+<p>Mencari akar pada range [a,b] tertentu</p>
+</li>
+<li>
+<p>Dalam range[a,b] dipastikan terdapat satu akar</p>
+</li>
+<li>
+<p>Hasil selalu konvergen → disebut juga metode konvergen</p>
+</li>
+<li>
+<p>Contohnya Metode Tabel ,Metode Biseksi,Metode Regula Falsi</p>
+</li>
+<li>
+<p>Metode Terbuka</p>
+</li>
+<li>
+<p>Diperlukan tebakan awal</p>
+</li>
+<li>
+<p>xn dipakai untuk menghitung xn+1</p>
+</li>
+<li>
+<p>Hasil dapat konvergen atau divergen</p>
+</li>
+<li>
+<p>Contohnya Metode Iterasi Sederhana, Metode Newton-Raphson, Metode Secant.</p>
+</li>
+<li>
+<p>method Bisection</p>
+</li>
+</ul>
+<blockquote>
+<p>Metode biseksi ini membagi range menjadi 2 bagian, dari dua bagian ini dipilih bagian mana yang mengandung akar sedangkan bagian yang tidak mengandung akar akan dibuang. Hal ini dilakukan berulang-ulang hingga diperoleh suatu akar persamaan</p>
+</blockquote>
+<p><em>langkah langkah</em></p>
+<ul>
+<li>Tentukan batas bawah (a) dan batas atas (b). Kemudian dihitung nilai tengah :</li>
+</ul>
+<p>$$
+  c = {(a+b)\over 2}
+  $$</p>
+<ul>
+<li>Dari nilai c ini perlu dilakukan pengecekan keberadaan akar. Secara matematik, suatu range terdapat akar persamaan bila f(a) dan f(b) berlawanan tanda atau dituliskan :</li>
+</ul>
+<p>$$
+  f(a).f(b) &lt;0
+  $$</p>
+<ul>
+<li>Setelah diketahui di bagian mana terdapat akar, maka batas bawah dan batas atas diperbarui sesuai dengan range dari bagian yang mempunyai akar</li>
+</ul>
+<p><em>algoritma metode bisection</em></p>
+<p>1.Definisikan fungsi f(x) yang akan dicari akarnya</p>
+<p>2.Tentukan nilai a dan b</p>
+<p>3.Tentukan toleransi e dan iterasi maksimum N</p>
+<p>4.Hitung f(a) dan f(b)</p>
+<p>5.Jika f(a).f(b)&gt;0 maka proses dihentikan karena tidak ada akar, bila tidak maka dilanjutkan</p>
+<p>6.Hitung x = (a+b)/2</p>
+<p>7.Hitung f(x)</p>
+<p>8.Bila f(x).f(a)&lt;0 maka b = x dan f(b)=f(x), bila tidak maka a=x dan f(a)=f(x)</p>
+<p>9.Jika |b-a|&lt; e atau iterasi &gt; iterasi maks maka proses dihentikan dan didapatkan akar x, bila tidak, ulangi langkah 6</p>
+<h2 id="implementasi-metode-bisection-dalam-python"><em>implementasi metode bisection dalam python</em><a class="headerlink" href="#implementasi-metode-bisection-dalam-python" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bisection method fails.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">a_n</span> <span class="o">=</span> <span class="n">a</span>
+    <span class="n">b_n</span> <span class="o">=</span> <span class="n">b</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">m_n</span> <span class="o">=</span> <span class="p">(</span><span class="n">a_n</span> <span class="o">+</span> <span class="n">b_n</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">f_m_n</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">m_n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a_n</span><span class="p">)</span><span class="o">*</span><span class="n">f_m_n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">a_n</span> <span class="o">=</span> <span class="n">a_n</span>
+            <span class="n">b_n</span> <span class="o">=</span> <span class="n">m_n</span>
+        <span class="k">elif</span> <span class="n">f</span><span class="p">(</span><span class="n">b_n</span><span class="p">)</span><span class="o">*</span><span class="n">f_m_n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">a_n</span> <span class="o">=</span> <span class="n">m_n</span>
+            <span class="n">b_n</span> <span class="o">=</span> <span class="n">b_n</span>
+        <span class="k">elif</span> <span class="n">f_m_n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found exact solution.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">m_n</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bisection method fails.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a_n</span> <span class="o">+</span> <span class="n">b_n</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">6</span>
+<span class="n">approx_phi</span> <span class="o">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">2.3</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">approx_phi</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="mf">1.9999999985098835</span>
+</code></pre></div>
+
+
+<ol>
+<li>methot Regula Falsi</li>
+</ol>
+<blockquote>
+<p>1.Metode pencarian akar persamaan dengan memanfaatkan kemiringan dan selisih tinggi dari dua titik batas range.</p>
+<p>2.Dua titik a dan b pada fungsi f(x) digunakan untuk mengestimasi posisi c dari akar interpolasi linier.</p>
+<p>3.Dikenal dengan metode False Position</p>
+<p>4.Metode ini juga merupakan penyempurna dari metode bisection</p>
+</blockquote>
+<p><em>algoritma method regula falsi</em></p>
+<ol>
+<li>
+<p>Definisikan fungsi f(x)</p>
+</li>
+<li>
+<p>Tentukan batas bawah (a) dan batas atas (b)</p>
+</li>
+<li>
+<p>Tentukan toleransi error e</p>
+</li>
+<li>
+<p>Hitung f(a) dan f(b)</p>
+</li>
+<li>
+<p>Untuk iterasi 1 s/d n &gt; e :
+   $$
+   c= {(f(b).a -f(a).b)\over (f(b)-f(a))}</p>
+</li>
+</ol>
+<p>$$
+   Hitung f(c)=f(x)</p>
+<p>​      Hitung error = |f(c)|</p>
+<p>​      Jika f(c).f(a)&lt;0 maka nilai a tetap ,jika tidak maka a=c dan f(a)=f(c)</p>
+<ol>
+<li>Akar persamaanya = c</li>
+</ol>
+<h2 id="implementasi-method-regula-falsi-dalam-python"><em>implementasi method regula falsi dalam python</em><a class="headerlink" href="#implementasi-method-regula-falsi-dalam-python" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">error</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">2.1</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">6</span>
+
+<span class="k">def</span> <span class="nf">regulasi_falsi</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="n">iteration</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">while</span> <span class="n">iteration</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">max_iter</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span> <span class="o">/</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">x</span>
+
+            <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">x</span>
+
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error</span><span class="p">:</span>
+                <span class="n">iteration</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tidak di temukan akar&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x =&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">regulasi_falsi</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mf">2.000000000174259</span>
+</code></pre></div>
+
+
+<ol>
+<li>Metode Newton Raphson</li>
+</ol>
+<blockquote>
+<p>Metode pencarian akar persamaan dengan memanfaatkan kemiringan dan selisih tinggi dari dua titik batas range.</p>
+<p>Dua titik a dan b pada fungsi f(x) digunakan untuk mengestimasi posisi c dari akar interpolasi linier.</p>
+<p>Dikenal dengan metode False Position</p>
+<p>Metode ini juga merupakan penyempurna dari metode bisection</p>
+</blockquote>
+<p><em>Prinsip Metode Newton Raphson</em></p>
+<blockquote>
+<p>Metode Newton-Raphson adalah metode pencarian akar suatu fungsi f(x) dengan pendekatan satu titik, dimana fungsi f(x) mempunyai turunan. Metode ini dianggap lebih mudah dari Metode Bagi-Dua (Bisection Method) karena metode ini menggunakan pendekatan satu titik sebagai titik awal.</p>
+</blockquote>
+<p><em>prosedur</em></p>
+<ol>
+<li>
+<p>Menentukan x0 sebagai titik awal.</p>
+</li>
+<li>
+<p>Menarik garis lurus (misal garis P) yang menyinggung titik f(x0). Hal ini berakibat garis P memotong sumbu-x di titik x1. </p>
+</li>
+<li>
+<p>Ulangi langkah sebelumnya tapi sekarang x1 dianggap sebagai titik awalnya. </p>
+</li>
+</ol>
+<p>Dari mengulang langkah-langkah sebelumnya akan mendapatkan x1,x2,x3,...,,xn dengan xn yang diperoleh adalah bilangan riil yang merupakan akar atau mendekati akar yang sebenarnya</p>
+<p><em>algoritma</em></p>
+<p><img alt="png" src="scr.png" /></p>
+<h2 id="implementasi-metode-newton-raphson-python"><em>implementasi Metode Newton Raphson python</em><a class="headerlink" href="#implementasi-metode-newton-raphson-python" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Df</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">epsilon</span><span class="p">,</span><span class="n">max_iter</span><span class="p">):</span>
+
+    <span class="n">xn</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">fxn</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">xn</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fxn</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found solution after&#39;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s1">&#39;iterations.&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xn</span>
+        <span class="n">Dfxn</span> <span class="o">=</span> <span class="n">Df</span><span class="p">(</span><span class="n">xn</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Dfxn</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zero derivative. No solution found.&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">xn</span> <span class="o">=</span> <span class="n">xn</span> <span class="o">-</span> <span class="n">fxn</span><span class="o">/</span><span class="n">Dfxn</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exceeded maximum iterations. No solution found.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+<span class="n">p</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">6</span>
+<span class="n">Dp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span> 
+<span class="n">approx</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">Dp</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1e-3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">approx</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">Found</span> <span class="n">solution</span> <span class="n">after</span> <span class="mi">4</span> <span class="n">iterations</span><span class="o">.</span>
+<span class="mf">1.9999847409781035</span>
+</code></pre></div>
+
+
+<ol>
+<li>Metode Secant</li>
+</ol>
+<blockquote>
+<p>■Metode Newton Raphson memerlukan perhitungan turunan fungsi f’(x).</p>
+<p>■Tidak semua fungsi mudah dicari turunannya terutama fungsi yang bentuknya rumit.</p>
+<p>■Turunan fungsi dapat dihilangkan dengan cara menggantinya dengan bentuk lain yang ekivalen</p>
+<p>■Modifikasi metode Newton Raphson dinamakan metode Secant.</p>
+</blockquote>
+<h5 id="formula-secant">formula secant<a class="headerlink" href="#formula-secant" title="Permanent link">&para;</a></h5>
+<p>$$
+y = \frac{f(b) - f(a)}{b - a}(x - a) + f(a)
+$$</p>
+<p>$$
+0 = \frac{f(b) - f(a)}{b - a}(x - a) + f(a)
+$$</p>
+<p>$$
+x = a - f(a)\frac{b - a}{f(b) - f(a)}
+$$</p>
+<h5 id="algoritma-method-secant">algoritma method secant<a class="headerlink" href="#algoritma-method-secant" title="Permanent link">&para;</a></h5>
+<p>■ Definisikan f(x)</p>
+<p>■ Definisikan toleransi error e dan iterasi maksimum (n)</p>
+<p>■ Masukan dua nilai pendekatan awal yang diantaranya terdapat akar yaitu x_0 dan x_1 ,sebaiknya gunakan metode tabel untuk menjamin titik pendekatanya adalah titik pendekatan yang konvergensinya pada akar persamaan yang diharapkan.</p>
+<p>■ Hitung f(x_0 ) dan fx_1 sebagai y_0 dan y_1</p>
+<p>■ Untuk iterasi 1 s/d n </p>
+<p>x_(i+1)= x_i-(f(xi)(x_i 〖-x〗<em>(i-1)))/(y_i - y</em>(i-1) )</p>
+<p>hitung y_(i+1)=〖f(x〗_(i+1))</p>
+<p>Akar persamaan adalah nilai x yang terakhir</p>
+<h2 id="implementasi-method-secant-pada-python"><em>implementasi method secant pada python</em><a class="headerlink" href="#implementasi-method-secant-pada-python" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">secant</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+
+
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Secant method fails.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">a_n</span> <span class="o">=</span> <span class="n">a</span>
+    <span class="n">b_n</span> <span class="o">=</span> <span class="n">b</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">m_n</span> <span class="o">=</span> <span class="n">a_n</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a_n</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">b_n</span> <span class="o">-</span> <span class="n">a_n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b_n</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a_n</span><span class="p">))</span>
+        <span class="n">f_m_n</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">m_n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a_n</span><span class="p">)</span><span class="o">*</span><span class="n">f_m_n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">a_n</span> <span class="o">=</span> <span class="n">a_n</span>
+            <span class="n">b_n</span> <span class="o">=</span> <span class="n">m_n</span>
+        <span class="k">elif</span> <span class="n">f</span><span class="p">(</span><span class="n">b_n</span><span class="p">)</span><span class="o">*</span><span class="n">f_m_n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">a_n</span> <span class="o">=</span> <span class="n">m_n</span>
+            <span class="n">b_n</span> <span class="o">=</span> <span class="n">b_n</span>
+        <span class="k">elif</span> <span class="n">f_m_n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found exact solution.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">m_n</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Secant method fails.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">a_n</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a_n</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">b_n</span> <span class="o">-</span> <span class="n">a_n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b_n</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a_n</span><span class="p">))</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">6</span>
+<span class="n">approx</span> <span class="o">=</span> <span class="n">secant</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">2.4</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">approx</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="mf">2.0000003178913373</span>
+</code></pre></div>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$$','$$'],['$','$']]}
+});
+</script>
+
+<p><script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../tugas1/" title="Error" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Error
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Nur Khofifah
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/fifin-44/" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
