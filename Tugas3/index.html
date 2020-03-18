@@ -1,0 +1,908 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Data Mining">
+      
+      
+        <link rel="canonical" href="https://github.com/fifin-44/datamining/Tugas3/">
+      
+      
+        <meta name="author" content="Nur Khofifah">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Eliminasi Gauss Jordan - Nur Khofifah</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../manifest.webmanifest" crossorigin="use-credentials">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#eliminasi-gauss-jordan" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.com/fifin-44/datamining/" title="Nur Khofifah" aria-label="Nur Khofifah" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Nur Khofifah
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Eliminasi Gauss Jordan
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/fifin-44/datamining/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Nur Khofifah
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href=".." class="md-tabs__link">
+          Penambangan Data
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Home/" class="md-tabs__link">
+          Komputasi Numerik
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.com/fifin-44/datamining/" title="Nur Khofifah" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Nur Khofifah
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/fifin-44/datamining/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Nur Khofifah
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Penambangan Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Penambangan Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="index" class="md-nav__link">
+      index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistik/" title="statistik deskriptif" class="md-nav__link">
+      statistik deskriptif
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MengukurJarak/" title="Mengukur jarak" class="md-nav__link">
+      Mengukur jarak
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Missing%20Values/" title="Missing Values" class="md-nav__link">
+      Missing Values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DECISION%20TREE/" title="DECISION TREE" class="md-nav__link">
+      DECISION TREE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas%205%20-%20Clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fuzzy clustering.md" title="fuzzy clustering" class="md-nav__link">
+      fuzzy clustering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas%207%20-%20Regresi%20Linier%20Sederhana%20dan%20Berganda/" title="Regresi Linier Sederhana dan Berganda" class="md-nav__link">
+      Regresi Linier Sederhana dan Berganda
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Komputasi Numerik
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Komputasi Numerik
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Home/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tugas1/" title="Error" class="md-nav__link">
+      Error
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Numerical%20Solution/" title="Numerical Solution" class="md-nav__link">
+      Numerical Solution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Eliminasi Gauss.md" title="Eliminasi Gauss" class="md-nav__link">
+      Eliminasi Gauss
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algoritma-gauss-jordan" class="md-nav__link">
+    Algoritma Gauss Jordan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-program" class="md-nav__link">
+    Listing Program
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/fifin-44/datamining/edit/master/docs/Tugas3.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="eliminasi-gauss-jordan">Eliminasi Gauss Jordan<a class="headerlink" href="#eliminasi-gauss-jordan" title="Permanent link">&para;</a></h1>
+<p>​       Eliminasi Gauss adalah suatu metode untuk mengoperasikan nilai-nilai di dalam matriks sehingga menjadi matriks yang lebih sederhana lagi. Dengan melakukan operasi baris sehingga matriks tersebut menjadi matriks yang baris. Ini dapat digunakan sebagai salah satu metode penyelesaian persamaan linear dengan menggunakan matriks. Caranya dengan mengubah persamaan linear tersebut ke dalam matriks teraugmentasi dan mengoperasikannya. Setelah menjadi matriks baris, lakukan substitusi balik untuk mendapatkan nilai dari variabel-variabel tersebut.</p>
+<p>​       Metode Eliminasi Gauss Jordan merupakan pengembangan metode eliminasi gauss, hanya saja augmented matrik , pada sebelah kiri dirubah menjadi matrik diagonal.</p>
+<p><img alt="" src="../gauss.png" /></p>
+<h2 id="algoritma-gauss-jordan">Algoritma Gauss Jordan<a class="headerlink" href="#algoritma-gauss-jordan" title="Permanent link">&para;</a></h2>
+<h2 id="_1"><img alt="" src="../algoritma_gauss.png" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../algoritma_gauss1.png" /></p>
+<h2 id="listing-program">Listing Program<a class="headerlink" href="#listing-program" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1">#Definisi Matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan ukuran Matrix: &quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">baris</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan Nilai: &quot;</span><span class="p">))</span>
+        <span class="n">baris</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baris</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan Hasil: &quot;</span><span class="p">))</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="n">Matrix</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">Hasil</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Matrix</span><span class="p">)</span>
+
+
+<span class="c1">#Eliminasi Gauss</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">Matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span> <span class="p">:</span>
+            <span class="n">lam</span><span class="o">=</span><span class="n">Matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">/</span><span class="n">Matrix</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">]</span>
+            <span class="n">Matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">:</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">Matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">:</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">Matrix</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">:</span><span class="n">n</span><span class="p">]</span><span class="o">*</span><span class="n">lam</span><span class="p">)</span>
+            <span class="n">Hasil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">Hasil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">Hasil</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">lam</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrix A : &quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">Matrix</span><span class="p">)</span>
+
+<span class="c1">#Subtitution</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">Hasil</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Matrix</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">]))</span><span class="o">/</span><span class="n">Matrix</span><span class="p">[</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nilai X &#39;</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+</code></pre></div>
+
+
+<p>Output:</p>
+<div class="codehilite"><pre><span></span><code>Masukkan ukuran Matrix: 3
+Masukkan Nilai: 2
+Masukkan Nilai: -2
+Masukkan Nilai: 5
+Masukkan Nilai: 1
+Masukkan Nilai: 5
+Masukkan Nilai: 2
+Masukkan Nilai: 4
+Masukkan Nilai: 5
+Masukkan Nilai: 2
+Masukkan Hasil: 12
+Masukkan Hasil: 3
+Masukkan Hasil: -4
+Matrix A :  
+ [[ 2.   -2.    5.  ]
+ [ 0.    6.   -0.5 ]
+ [ 0.    0.   -7.25]]
+Nilai X  3 = 3.2413793103448274
+Nilai X  2 = -0.2298850574712644
+Nilai X  1 = -2.333333333333332
+</code></pre></div>
+
+
+<p>jadi panjang Matrix yang dibuat dalam Program Diatas adalah 3 variabel.</p>
+<p>|2  -2  5|  |12|</p>
+<p>|1   5  2|=| 3 |</p>
+<p>|4   5  2|   |-4|</p>
+<p>pivot yang dibentuk adalah a1.1,a2.2,dan a3.3 sehingga semua angka yang ada dibawah pivot akan dikonversikan menjadi nol sesuai hasil program dan hasil dari persamaan diatas menghasilkan x1=-2.333333333, x2=-0.22988505 dan x3=3.2413793</p>
+<h1 id="eliminasi-gauss-jacobi">Eliminasi Gauss Jacobi<a class="headerlink" href="#eliminasi-gauss-jacobi" title="Permanent link">&para;</a></h1>
+<p><strong>Metode IterasiJacobi</strong> merupakan salah satu bidang analisis numerik yang digunakan untuk menyelesaikan permasalahan Persamaan Linier dan sering dijumpai dalam berbagai disiplin ilmu. Metode Iterasi Jacobi merupakan salah satu metode tak langsung, yaitu bermula dari suatu hampiran penyelesaian awal dan kemudian berusaha memperbaiki hampiran dalam tak berhingga namun langkah konvergen. Metode Iterasi Jacobi ini digunakan untuk menyelesaikan persamaan Linier berukuran besar dan proporsi koefisien nolnya besar.</p>
+<p>Metode ini ditemukan oleh Matematikawan yang berasal dari Jerman,Carl,Gustav,Jacobi. Penemuan ini diperkirakan pada tahun 1800-an.</p>
+<p><img alt="jacobi" src="../jacobi.png" /></p>
+<h2 id="listing-program_1">Listing Program<a class="headerlink" href="#listing-program_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">diag</span><span class="p">,</span> <span class="n">diagflat</span><span class="p">,</span> <span class="n">dot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">jacobi</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1">#Membuat iniial guess                                                                                                                                                         </span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="c1">#Membuat vektor dari elemen matrix A                                                                                                                                                                                                                                                                                                                 </span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">diagflat</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+
+    <span class="c1">#Iterasi                                                                                                                                                                        </span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">dot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">D</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">Mat1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">Mat2</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan ukuran Matrix: &quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">baris</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan Nilai: &quot;</span><span class="p">))</span>
+        <span class="n">baris</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">Mat1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baris</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan Hasil: &quot;</span><span class="p">))</span>
+    <span class="n">Mat2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">Mat1</span><span class="p">,</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">Mat2</span><span class="p">,</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Mat1</span><span class="p">)</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">jacobi</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">guess</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A:&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b:&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x:&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Output:</p>
+<div class="codehilite"><pre><span></span><code>Masukkan ukuran Matrix: 3
+Masukkan Nilai: 3
+Masukkan Nilai: 1
+Masukkan Nilai: -1
+Masukkan Nilai: 4
+Masukkan Nilai: 7
+Masukkan Nilai: -3
+Masukkan Nilai: 2
+Masukkan Nilai: -2
+Masukkan Nilai: 5
+Masukkan Hasil: 5
+Masukkan Hasil: 20
+Masukkan Hasil: 10
+A:
+array([[ 3.,  1., -1.],
+       [ 4.,  7., -3.],
+       [ 2., -2.,  5.]])
+b:
+array([ 5., 20., 10.])
+x:
+array([1.50602413, 3.13253016, 2.6506024 ])
+</code></pre></div>
+
+
+<h1 id="program-gauss-seidel">Program Gauss Seidel<a class="headerlink" href="#program-gauss-seidel" title="Permanent link">&para;</a></h1>
+<p><img alt="seidel" src="../gauss_seidel.png" /></p>
+<h1 id="listing-program_2">Listing Program<a class="headerlink" href="#listing-program_2" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">seidel</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span> <span class="p">,</span><span class="n">b</span><span class="p">):</span> 
+    <span class="c1">#Mencari Panjang Matrix  </span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>               
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>        
+        <span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>                 
+        <span class="c1">#Menghitung xi, yi, zi </span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>    
+            <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="n">i</span><span class="p">):</span> 
+                <span class="n">d</span><span class="o">-=</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>        
+        <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span> <span class="o">/</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="c1">#Solusi   </span>
+    <span class="k">return</span> <span class="n">x</span>     
+
+<span class="n">m</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan Panjang Matrix: &quot;</span><span class="p">))</span>
+<span class="n">a</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">mat1</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">l</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan a&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;: &quot;</span><span class="p">))</span>
+        <span class="n">mat1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">h</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan Hasil: &quot;</span><span class="p">))</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>                           
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>                        
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>          
+    <span class="n">x</span> <span class="o">=</span> <span class="n">seidel</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                 
+</code></pre></div>
+
+
+<p>Output:</p>
+<div class="codehilite"><pre><span></span><code>Masukkan Panjang Matrix: 3
+Masukkan a1,1: 4
+Masukkan a1,2: -1
+Masukkan a1,3: 1
+Masukkan Hasil: 7
+Masukkan a2,1: 4
+Masukkan a2,2: -8
+Masukkan a2,3: 1
+Masukkan Hasil: -21
+Masukkan a3,1: -2
+Masukkan a3,2: 1
+Masukkan a3,3: 5
+Masukkan Hasil: 15
+[0, 0, 0]
+[1.75, 3.5, 3.0]
+[1.875, 3.9375, 2.9625]
+[1.99375, 3.9921875, 2.9990625]
+[1.99828125, 3.9990234375, 2.9995078125]
+[1.99987890625, 3.9998779296875, 2.9999759765625003]
+[1.99997548828125, 3.9999847412109375, 2.999993247070312]
+[1.9999978735351562, 3.9999980926513667, 2.999999530883789]
+[1.9999996404418945, 3.9999997615814205, 2.9999999038604734]
+[1.9999999644302369, 3.9999999701976776, 2.9999999917325595]
+[1.9999999946162794, 3.9999999962747097, 2.99999999859157]
+[1.9999999994207849, 3.9999999995343387, 2.9999999998614464]
+[1.9999999999182232, 3.999999999941793, 2.999999999978931]
+[1.9999999999907154, 3.999999999992724, 2.9999999999977414]
+[1.9999999999987457, 3.9999999999990905, 2.9999999999996803]
+[1.9999999999998526, 3.9999999999998863, 2.9999999999999636]
+[1.9999999999999807, 3.999999999999986, 2.999999999999995]
+[1.9999999999999978, 3.9999999999999987, 2.9999999999999996]
+[1.9999999999999996, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+[2.0, 4.0, 3.0]
+</code></pre></div>
+
+
+<p>Dari soal diatas persamaan yang dipilih adalah 4x-y+z=7, 4x-8y+z=-21 dan -2x+y+5z=15. Iterasi yang digunakan sebanyak 100 iterasi sehingga dapat menghasilkan x=2,y=4 dan z=3.</p>
+<p>Sekian dan Terima Kasih</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Nur Khofifah
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/fifin-44/" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
