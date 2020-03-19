@@ -1,0 +1,772 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Data Mining">
+      
+      
+        <link rel="canonical" href="https://github.com/fifin-44/datamining/Romberg/">
+      
+      
+        <meta name="author" content="Nur Khofifah">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Romberg - Nur Khofifah</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../manifest.webmanifest" crossorigin="use-credentials">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#metode-integrasi-romberg" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.com/fifin-44/datamining/" title="Nur Khofifah" aria-label="Nur Khofifah" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Nur Khofifah
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Romberg
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/fifin-44/datamining/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Nur Khofifah
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href=".." class="md-tabs__link">
+          Penambangan Data
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Home/" class="md-tabs__link md-tabs__link--active">
+          Komputasi Numerik
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.com/fifin-44/datamining/" title="Nur Khofifah" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Nur Khofifah
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/fifin-44/datamining/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Nur Khofifah
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Penambangan Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Penambangan Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="index" class="md-nav__link">
+      index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistik/" title="statistik deskriptif" class="md-nav__link">
+      statistik deskriptif
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MengukurJarak/" title="Mengukur jarak" class="md-nav__link">
+      Mengukur jarak
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Missing%20Values/" title="Missing Values" class="md-nav__link">
+      Missing Values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DECISION%20TREE/" title="DECISION TREE" class="md-nav__link">
+      DECISION TREE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas%205%20-%20Clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fuzzy clustering.md" title="fuzzy clustering" class="md-nav__link">
+      fuzzy clustering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas%207%20-%20Regresi%20Linier%20Sederhana%20dan%20Berganda/" title="Regresi Linier Sederhana dan Berganda" class="md-nav__link">
+      Regresi Linier Sederhana dan Berganda
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Komputasi Numerik
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Komputasi Numerik
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Home/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tugas1/" title="Error" class="md-nav__link">
+      Error
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Numerical%20Solution/" title="Numerical Solution" class="md-nav__link">
+      Numerical Solution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas3/" title="Eliminasi Gauss" class="md-nav__link">
+      Eliminasi Gauss
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Romberg
+      </label>
+    
+    <a href="./" title="Romberg" class="md-nav__link md-nav__link--active">
+      Romberg
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-pengertian" class="md-nav__link">
+    A. Pengertian
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-code-program" class="md-nav__link">
+    B. Code Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-output" class="md-nav__link">
+    C. Output
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-pengertian" class="md-nav__link">
+    A. Pengertian
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-code-program" class="md-nav__link">
+    B. Code Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-output" class="md-nav__link">
+    C. Output
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/fifin-44/datamining/edit/master/docs/Romberg.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="metode-integrasi-romberg"><strong>METODE INTEGRASI ROMBERG</strong><a class="headerlink" href="#metode-integrasi-romberg" title="Permanent link">&para;</a></h1>
+<h4 id="a-pengertian"><strong>A. Pengertian</strong><a class="headerlink" href="#a-pengertian" title="Permanent link">&para;</a></h4>
+<p>Integrasi Romberg merupakan teknik yang digunakan dalam integrasi numerik untuk  menganalisis kasus dimana fungsi yang akan diintegrasikan tersedia.  Teknik ini memiliki keunggulan untuk menghasilkan nilai-nilai dari fungsi yang digunakan untuk mengembangkan skema yang efisien bagi pengintegrasian secara numerik. Integrasi Romberg didasarkan pada ekstrapolasi Richardson (<em>Richardson's extrapolation</em>), yaitu metode untuk mengkombinasikan dua perkiraan integral secara numerik untuk memperoleh nilai ketiga, yang lebih akurat.</p>
+<p>Teknik ini bersifat rekursif dan dapat digunakan untuk menghasilkan sebuah perkiraan integral dalam batas toleransi kesalahan (<em>error tolerance</em>) yang sudah ditentukan terlebih dahulu. Metode ini digunakan untuk memperbaiki hasil pendekatan integrasi metode trapesium, karena
+kesalahan metode trapesium “cukup” besar untuk polinom untuk polinom pangkat tinggi dan fungsi transeden. </p>
+<p>Pada proses integrasi Romberg, mula-mula kita hitung kuadratur dengan lebar langkah h dan 2h. Defisini kuadratur adalah </p>
+<p><img alt="img" src="https://html1-f.scribdassets.com/3bmo6b7kxs29arpy/images/1-a5159913f4.jpg" /></p>
+<p>Untuk menurunkan galat hampiran integral dari O(h2) menjadi O(h2n + 2) dapat digunakan
+ekstrapolasi Richardson seperti dinyatakan dalam teorema :</p>
+<p><img alt="Image result for integrasi romberg" src="data:image/jpeg;base64,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" /></p>
+<p>jika didefinisikan barisan kuadratur {I(i,j) : i &gt;= j dimana j =1, 2, 3, ....} untuk hampiran integral f(x) pada [a, b] sebagai:</p>
+<p>​       I (i, 1) = Ti – 1. i ≥ 1 ( barisan aturan trapezium majemuk)
+​       I (i, 2) = Si – 1. i ≥ 2 (barisan aturan Simpson majemuk)
+​       I (i, 3) = Bi – 1. i ≥ 3 (barisan aturan Boole majemuk)</p>
+<p>Maka integrasi romberg untuk meningkatkan keakuratan hampiran integral dapat di tulis sebagai </p>
+<p><img alt="Image result for Integrasi Romberg dengan Ekstrapolasi Richardson" src="data:image/png;base64,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" /></p>
+<h4 id="b-code-program"><strong>B. Code Program</strong><a class="headerlink" href="#b-code-program" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">trapezcomp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Composite trapezoidal function integration</span>
+
+<span class="sd">    INPUTS:</span>
+<span class="sd">    f:  the function to integrate</span>
+<span class="sd">    a:  lower bound of integration</span>
+<span class="sd">    b:  upper bound</span>
+<span class="sd">    n:  number of panels to create between ``a`` and ``b``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Initialization</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
+
+    <span class="c1"># Composite rule</span>
+    <span class="n">In</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">h</span>
+        <span class="n">In</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">In</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="mf">0.5</span>
+
+
+<span class="k">def</span> <span class="nf">romberg</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Romberg integration</span>
+
+<span class="sd">    INPUTS:</span>
+<span class="sd">    f:  the function to integrate</span>
+<span class="sd">    a:  lower bound of integration</span>
+<span class="sd">    b:  upper bound</span>
+<span class="sd">    p:  number of rows in the Romberg table</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="c1"># Composite trapezoidal rule for 2^k panels</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">trapezcomp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="n">k</span><span class="p">)</span>
+
+        <span class="c1"># Romberg recursive formula</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+            <span class="n">I</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">I</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># display intermediate results</span>
+
+    <span class="k">return</span> <span class="n">I</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">p_rows</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">romberg</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">p_rows</span><span class="p">)</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">p_rows</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">p_rows</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>                  <span class="c1"># 1.00000000814</span>
+</code></pre></div>
+
+
+<h4 id="c-output"><strong>C. Output</strong><a class="headerlink" href="#c-output" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="n">Microsoft</span> <span class="n">Windows</span> <span class="p">[</span><span class="n">Version</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">18362.657</span><span class="p">]</span>
+<span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2019</span> <span class="n">Microsoft</span> <span class="n">Corporation</span><span class="o">.</span> <span class="n">All</span> <span class="n">rights</span> <span class="n">reserved</span><span class="o">.</span>
+
+<span class="n">C</span><span class="p">:</span>\<span class="n">Kuliah</span>\<span class="n">KomputasiNumerik</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">romberg</span><span class="o">.</span><span class="n">py</span>
+<span class="p">[</span><span class="mf">0.78539816</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.94805945</span> <span class="mf">1.00227988</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.9871158</span>  <span class="mf">1.00013458</span> <span class="mf">0.99999157</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">0.99678517</span> <span class="mf">1.0000083</span>  <span class="mf">0.99999988</span> <span class="mf">1.00000001</span><span class="p">]</span>
+<span class="mf">1.0000000081440203</span>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Tugas3/" title="Eliminasi Gauss" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Eliminasi Gauss
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Nur Khofifah
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/fifin-44/" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
